@@ -16,8 +16,7 @@ python -m src.pipeline.build_dataset
 python -m pytest -q
 ```
 
-The first dataset build creates the frozen-input manifest when it does not yet
-exist. Individual stages are also runnable:
+第一个数据集构建会在输入清单尚不存在时创建它。各个阶段也可以单独运行：
 
 ```powershell
 python -m src.data.freeze_inputs
@@ -27,12 +26,7 @@ python -m src.labels.build_labels
 python -m src.audit.asof_audit
 ```
 
-All timestamps use `Asia/Shanghai`. A macro value is usable only when its
-publication timestamp is less than or equal to the 20:00 model timestamp.
-Because the supplied source has one published vintage per observation, full
-revision-vintage behavior cannot be independently verified; the generated
-metadata and audit report record this limitation explicitly.
-
+所有时间戳都使用 `Asia/Shanghai`。宏值只有在其发布时间戳小于或等于 20:00 的模型时间戳时才可使用。由于提供的源数据每个观测值只有一个已发布版本，因此无法独立验证完整的修订版本行为；生成的元数据和审计报告明确记录了这一限制。
 Generated research artifacts include:
 
 - `data/processed/model_dataset.parquet`
