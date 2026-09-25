@@ -1,0 +1,14 @@
+{
+  "audit_status": "PASS",
+  "horizons": [
+    5,
+    20
+  ],
+  "folds_per_horizon": 5,
+  "models": [
+    "Persistence",
+    "Multi-scale Linear"
+  ],
+  "oos_start": "2023-01-01",
+  "note": "Leakage status is independent of predictive performance."
+}
