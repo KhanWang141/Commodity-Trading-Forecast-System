@@ -4,18 +4,9 @@
 
 ## Research data pipeline
 
-This branch contains a reproducible, point-in-time data pipeline for the
-commodity-volatility research dataset. Frozen inputs are SHA-256 verified before
-every build. Market features are independently recomputed from daily log
-returns, macro features are rebuilt with backward `merge_asof` joins on
-publication timestamps, and labels are computed in a module that does not
-import feature code.
+T这个分支有一个可复现的、按时间点的数据管道，用于商品波动性研究数据集。每次构建前都会用 SHA-256 检查冻结的输入。市场特征是从每日对数收益重新计算的，宏观特征通过在发布时间戳上使用 backward merge_asof 重新构建，标签是在一个不导入任何特征代码的模块中计算的。
 
-The supplied files contain 51 candidate values. `config/features.yaml` freezes
-a 29-feature schema: eight multi-scale iron-ore features, six short-term
-cross-commodity features, and all fifteen macro publication features. The
-root-level CSV files are retained from the original branch; the pipeline uses
-the byte-frozen snapshots under `data/raw/` and `data/frozen/`.
+提供的文件包含 51 个候选值。config/features.yaml 锁定了一个 29 特征的 schema：包括八个多尺度铁矿特征、六个短期跨商品特征，以及全部十五个宏观发布特征。根目录下的 CSV 文件保留自原始分支；管道使用存储在 data/raw/ 和 data/frozen/ 下的字节冻结快照。
 
 ### Reproduce
 
