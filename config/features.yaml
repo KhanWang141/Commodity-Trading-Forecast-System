@@ -1,0 +1,165 @@
+feature_count: 29
+annualization: 252
+timezone: Asia/Shanghai
+source: features_asof
+output_path: data/processed/features.parquet
+availability_output_path: data/processed/feature_availability.parquet
+groups:
+  group_A_target_market:
+    - name: I_cumret_5
+      source: features_asof:I_r
+      source_column: I_cumret_5
+      return_column: I_r
+      frequency: trading_daily
+      window: 5
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Iron ore cumulative return over the trailing 5 observations.
+    - name: I_daily_squared_return_vol_5
+      source: features_asof:I_r
+      source_column: I_daily_squared_return_vol_5
+      return_column: I_r
+      frequency: trading_daily
+      window: 5
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: annualized_rms_return
+      description: Iron ore annualized trailing 5-observation RMS volatility.
+    - name: I_cumret_10
+      source: features_asof:I_r
+      source_column: I_cumret_10
+      return_column: I_r
+      frequency: trading_daily
+      window: 10
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Iron ore cumulative return over the trailing 10 observations.
+    - name: I_daily_squared_return_vol_10
+      source: features_asof:I_r
+      source_column: I_daily_squared_return_vol_10
+      return_column: I_r
+      frequency: trading_daily
+      window: 10
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: annualized_rms_return
+      description: Iron ore annualized trailing 10-observation RMS volatility.
+    - name: I_cumret_22
+      source: features_asof:I_r
+      source_column: I_cumret_22
+      return_column: I_r
+      frequency: trading_daily
+      window: 22
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Iron ore cumulative return over the trailing 22 observations.
+    - name: I_daily_squared_return_vol_22
+      source: features_asof:I_r
+      source_column: I_daily_squared_return_vol_22
+      return_column: I_r
+      frequency: trading_daily
+      window: 22
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: annualized_rms_return
+      description: Iron ore annualized trailing 22-observation RMS volatility.
+    - name: I_cumret_66
+      source: features_asof:I_r
+      source_column: I_cumret_66
+      return_column: I_r
+      frequency: trading_daily
+      window: 66
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Iron ore cumulative return over the trailing 66 observations.
+    - name: I_daily_squared_return_vol_66
+      source: features_asof:I_r
+      source_column: I_daily_squared_return_vol_66
+      return_column: I_r
+      frequency: trading_daily
+      window: 66
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: annualized_rms_return
+      description: Iron ore annualized trailing 66-observation RMS volatility.
+  group_B_related_markets:
+    - name: J_r
+      source: features_asof:J_r
+      source_column: J_r
+      return_column: J_r
+      frequency: trading_daily
+      window: 1
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: identity
+      description: Same-day coke log return known at forecast time.
+    - name: J_cumret_5
+      source: features_asof:J_r
+      source_column: J_cumret_5
+      return_column: J_r
+      frequency: trading_daily
+      window: 5
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Coke cumulative return over the trailing 5 observations.
+    - name: JM_r
+      source: features_asof:JM_r
+      source_column: JM_r
+      return_column: JM_r
+      frequency: trading_daily
+      window: 1
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: identity
+      description: Same-day coking-coal log return known at forecast time.
+    - name: JM_cumret_5
+      source: features_asof:JM_r
+      source_column: JM_cumret_5
+      return_column: JM_r
+      frequency: trading_daily
+      window: 5
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Coking-coal cumulative return over the trailing 5 observations.
+    - name: RB_r
+      source: features_asof:RB_r
+      source_column: RB_r
+      return_column: RB_r
+      frequency: trading_daily
+      window: 1
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: identity
+      description: Same-day rebar log return known at forecast time.
+    - name: RB_cumret_5
+      source: features_asof:RB_r
+      source_column: RB_cumret_5
+      return_column: RB_r
+      frequency: trading_daily
+      window: 5
+      lag: 0
+      release_lag: available_at_forecast_time
+      transform: cumulative_log_return
+      description: Rebar cumulative return over the trailing 5 observations.
+  group_C_macro:
+    - {name: cpi_mom, source: features_asof:cpi_mom, source_column: cpi_mom, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: CPI month-on-month growth as first published.}
+    - {name: cpi_yoy, source: features_asof:cpi_yoy, source_column: cpi_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: CPI year-on-year growth as first published.}
+    - {name: crude_steel_yoy, source: features_asof:crude_steel_yoy, source_column: crude_steel_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Crude-steel output year-on-year growth.}
+    - {name: industrial_value_added_yoy, source: features_asof:industrial_value_added_yoy, source_column: industrial_value_added_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Industrial value-added year-on-year growth.}
+    - {name: pig_iron_yoy, source: features_asof:pig_iron_yoy, source_column: pig_iron_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Pig-iron output year-on-year growth.}
+    - {name: pmi_input_prices, source: features_asof:pmi_input_prices, source_column: pmi_input_prices, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Manufacturing PMI input-price index.}
+    - {name: pmi_manufacturing, source: features_asof:pmi_manufacturing, source_column: pmi_manufacturing, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Headline manufacturing PMI.}
+    - {name: pmi_new_orders, source: features_asof:pmi_new_orders, source_column: pmi_new_orders, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Manufacturing PMI new-orders index.}
+    - {name: ppi_iron_mining_mom, source: features_asof:ppi_iron_mining_mom, source_column: ppi_iron_mining_mom, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Iron-mining PPI month-on-month growth.}
+    - {name: ppi_iron_mining_yoy, source: features_asof:ppi_iron_mining_yoy, source_column: ppi_iron_mining_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Iron-mining PPI year-on-year growth.}
+    - {name: ppi_mom, source: features_asof:ppi_mom, source_column: ppi_mom, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Aggregate PPI month-on-month growth.}
+    - {name: ppi_steel_mom, source: features_asof:ppi_steel_mom, source_column: ppi_steel_mom, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Steel PPI month-on-month growth.}
+    - {name: ppi_steel_yoy, source: features_asof:ppi_steel_yoy, source_column: ppi_steel_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Steel PPI year-on-year growth.}
+    - {name: ppi_yoy, source: features_asof:ppi_yoy, source_column: ppi_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Aggregate PPI year-on-year growth.}
+    - {name: steel_products_yoy, source: features_asof:steel_products_yoy, source_column: steel_products_yoy, frequency: monthly, window: 1, lag: 0, release_lag: release_timestamp, transform: identity, description: Steel-products output year-on-year growth.}

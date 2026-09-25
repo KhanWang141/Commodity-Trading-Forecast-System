@@ -1,0 +1,12 @@
+timezone: Asia/Shanghai
+manifest_path: data/manifests/input_manifest.json
+sources:
+  features_asof:
+    raw_path: data/raw/features_asof.csv
+    frozen_path: data/frozen/features_asof.csv
+    date_column: date
+    forecast_time_column: forecast_time
+  targets_and_splits:
+    raw_path: data/raw/targets_and_splits.csv
+    frozen_path: data/frozen/targets_and_splits.csv
+    date_column: date
