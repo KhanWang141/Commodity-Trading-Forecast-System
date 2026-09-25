@@ -1,0 +1,26 @@
+{
+  "critical_violations": 0,
+  "limitations": [
+    "cpi_mom: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "cpi_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "crude_steel_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "industrial_value_added_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "pig_iron_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "pmi_input_prices: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "pmi_manufacturing: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "pmi_new_orders: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "ppi_iron_mining_mom: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "ppi_iron_mining_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "ppi_mom: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "ppi_steel_mom: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "ppi_steel_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "ppi_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out.",
+    "steel_products_yoy: No revision vintages are present in the supplied source; final-vintage contamination cannot be independently ruled out."
+  ],
+  "pass_rate": 1.0,
+  "status": "PASS",
+  "total_features": 29,
+  "total_rows_checked": 53911,
+  "violations": 15,
+  "warning_violations": 15
+}

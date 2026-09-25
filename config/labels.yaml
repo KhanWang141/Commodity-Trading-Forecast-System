@@ -1,0 +1,16 @@
+instrument: I
+return_source: features_asof
+return_column: I_r
+timestamp_column: forecast_time
+date_column: date
+annualization: 252
+horizons:
+  - 5
+  - 20
+volatility_definition: sqrt(annualization * mean(r[t+1:t+h]^2))
+label_definition: log(realized_volatility)
+zero_volatility_policy: null
+reference_source: targets_and_splits
+reference_volatility_prefix: y_vol_
+reference_return_prefix: y_return_
+output_path: data/processed/labels.parquet
