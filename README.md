@@ -2,6 +2,24 @@
 
 面向不完整多源数据的商品期货波动预测框架——发布时点对齐、分层信息融合与滚动样本外检验
 
+## 最新数据源（2026-10-06）
+
+以下两个 ZIP 为当前最新的实验代码与数据来源，按提供的原始文件完整归档：
+
+| 文件 | 内容 | 大小（字节） |
+| --- | --- | ---: |
+| [main_experiment_v1_code.zip](main_experiment_v1_code.zip) | 主实验代码、配套数据、交叉验证与样本外实验结果 | 6,150,373 |
+| [paper_aligned_cv_fix_code.zip](paper_aligned_cv_fix_code.zip) | 论文对齐的交叉验证修正代码、输入数据、重建数据集与基准结果 | 2,273,623 |
+
+SHA-256 校验值：
+
+```text
+a53c4f4bfbf093ef0bc8b7af0cc69a21ca9836ed7325d05347b76b1b754404f0  main_experiment_v1_code.zip
+c73844ee2366a400df78d8df08900e62beea6ac87db0eefedc6a1f5cae53f42e  paper_aligned_cv_fix_code.zip
+```
+
+使用最新实验版本时，请解压对应 ZIP，并参考包内 README。本次更新仅归档这两个来源包；下方现有 Research data pipeline 的默认输入路径尚未切换到包内数据。
+
 ## Research data pipeline
 
 这个分支有一个可复现的、按时间点的数据源，用于商品波动性研究数据集。每次构建前都会用 SHA-256 检查冻结的输入。市场特征是从每日对数收益重新计算的，宏观特征通过在发布时间戳上使用 backward merge_asof 重新构建，标签是在一个不导入任何特征代码的模块中计算的。
